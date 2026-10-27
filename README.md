@@ -8,6 +8,8 @@ The repository contains a runnable offline demo with synthetic email, files, and
 
 The live model client uses Nebius Token Factory's OpenAI-compatible API. Configure credentials to verify a real call; without credentials, the demo remains explicitly offline. The current default model names are configurable because Token Factory availability is account-specific.
 
+`airlock.agent.Reader` and `airlock.agent.Planner` provide the two model roles. Their default is explicitly offline fixture mode; pass `offline=False` only when a configured Token Factory key is available. Reader output is schema-validated and retains its source identifier; it never receives tool access.
+
 Run the reproducible 15-variant policy evaluation with `python3 run_evaluation.py`. It writes `data/evaluation/results.json` (ignored by Git because it contains run-specific IDs) and prints the actual summary; the output is authoritative.
 
 ## Quick start

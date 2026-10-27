@@ -3,6 +3,7 @@ from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
 from .scenarios import email_exfiltration, search_exfiltration
 from .evaluation import run_evaluation
+from .graph import graph_for_demo
 
 app = FastAPI(title="Airlock")
 
@@ -15,6 +16,10 @@ def scenario(name: str, mode: str = "airlock"):
 @app.get("/api/evaluation")
 def evaluation():
     return run_evaluation()
+
+@app.get("/api/graph")
+def graph():
+    return graph_for_demo()
 
 @app.get("/", response_class=HTMLResponse)
 def home():
